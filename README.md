@@ -52,8 +52,34 @@ y modificar la linea **config.vm.box**
 
 ### Ubuntu 14.04 LTS para desarrollo web (mysql user \> root:password)
 
-Incluye: git, mysql, php5, php5-curl, apache, drush, compass, nodejs
+**Incluye**: git, mysql, php5, php5-curl, apache, drush, compass, nodejs, npm.  
+Mod Rewrite On, Localhost apache apuntando a /vagrant (sincronizada con carpeta
+local del proyecto).
 
  
 
-config.vm.box = "http://example.net/first-box-jekyll.box"
+
+
+config.vm.box = "http://www.criterioweb.com/boxes/ubuntuPhp5Dev .box"
+
+ 
+
+ 
+
+O si ya tenes el archivo .box, simplemente agregar desde la consola la VM el
+nuevo box
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+vagrant box add ubuntuPhp5Dev ubuntuPhp5Dev.box
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 
+
+Y luego en el folder del proyecto, remover el Vagrant file si ya existe.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+vagrant init -m ubuntuPhp5Dev 
+vagrant up
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
