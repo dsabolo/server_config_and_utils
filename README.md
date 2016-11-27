@@ -29,7 +29,7 @@ Plugins Vagrant
 
 -   vagrant-vbguest (0.13.0)
 
--   vagrant-winnfsd (1.3.1)  (Solo si estas trabajando en una PC windows)
+-   vagrant-winnfsd (1.3.1) (Solo si estas trabajando en una PC windows)
 
  
 
@@ -58,8 +58,6 @@ local del proyecto).
 
  
 
-
-
 config.vm.box = "http://www.criterioweb.com/boxes/ubuntuPhp5Dev .box"
 
  
@@ -68,8 +66,6 @@ config.vm.box = "http://www.criterioweb.com/boxes/ubuntuPhp5Dev .box"
 
 O si ya tenes el archivo .box, simplemente agregar desde la consola la VM el
 nuevo box
-
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 vagrant box add ubuntuPhp5Dev ubuntuPhp5Dev.box
@@ -83,3 +79,23 @@ Y luego en el folder del proyecto, remover el Vagrant file si ya existe.
 vagrant init -m ubuntuPhp5Dev 
 vagrant up
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 
+
+**Método alternativo (usando el provisioning)**
+
+Descargar del repositorio el archivo  de secuencias de bootstrap
+(https://github.com/dsabolo/myVagrantBoxes/blob/master/ubuntu\_14\_04\_php\_dev/bootstrap.sh)
+
+ 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+vagrant init -m ubuntu/trusty64
+
+//Agregar al Vagrantfile
+config.vm.provision "path/to/bootstrap.sh"
+
+vagrant up
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 
