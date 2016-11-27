@@ -57,9 +57,10 @@ Mod Rewrite On, Localhost apache apuntando a /vagrant (sincronizada con carpeta
 local del proyecto).
 
  
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 config.vm.box = "http://www.criterioweb.com/boxes/ubuntuPhp5Dev .box"
-
+config.vm.network "forwarded_port", guest: 80, host: 8080
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  
 
  
@@ -77,10 +78,13 @@ Y luego en el folder del proyecto, remover el Vagrant file si ya existe.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 vagrant init -m ubuntuPhp5Dev 
-vagrant up
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- 
+Editar el Vagrantfile y agregar
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+config.vm.network "forwarded_port", guest: 80, host: 8080
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Método alternativo (usando el provisioning)**
 
